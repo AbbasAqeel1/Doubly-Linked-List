@@ -34,7 +34,17 @@ public:
 		Tail = NULL;
 		Size = 0;
 	}
-
+	~DoublyLinkedList()
+	{
+		Node<T>* temp = NULL;
+		while (Head)
+		{
+			temp = Head;
+			Head = Head->next;
+			delete temp;
+		}
+		Head = Tail = NULL;
+	}
 	int GetSize()
 	{
 		return Size;
